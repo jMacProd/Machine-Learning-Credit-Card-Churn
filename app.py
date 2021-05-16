@@ -1,5 +1,5 @@
 # import necessary libraries
-from models import create_classes
+#from models import create_classes
 import os
 from flask import (
     Flask,
@@ -29,20 +29,57 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-from flask_sqlalchemy import SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '') or "sqlite:///db.sqlite"
+    #IF we are using SQL on Heruko
+# from flask_sqlalchemy import SQLAlchemy
+# From Ryan's example
+# from sqlalchemy.sql import select, column, text
+# from sqlalchemy.sql.expression import func
+# import simplejson
 
-# Remove tracking modifications
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '').replace("://", "ql://", 1) or "sqlite:///db.sqlite"
 
-db = SQLAlchemy(app)
+    #IF we are using SQL on local servier
+    #cofig.py file used when accessing data from locally hosted postgres database. Commented out for Heroku deployment. File not tracked to github
+# from config import user, password
+# app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user}:{password}@localhost:5432/twitteractivity'
 
-XXXXX = create_classes(db)
+    # Remove tracking modifications - probably only need this if using SQL
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# db = SQLAlchemy(app)
+
+# XXXXX = create_classes(db)
+
+#################################################
 # create route that renders index.html template
+#################################################
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
 # Query the database and send the jsonified results
+
+#################################################
+# create route that collects entered individual data on index.html
+# and passes through model,  predictions and returns outcome
+#################################################
+
+@app.route("/individual")
+def individual():
+    return "Individul data"
+
+#################################################
+# create route that collects entered CSV on index.html
+# and passes through model,  predictions and returns outcome
+#################################################
+@app.route("/bulk")
+def bulk():
+    return "Bulk data"
+
+#################################################
+# End
+#################################################1
+if __name__ == "__main__":
+    app.run(debug=True)
