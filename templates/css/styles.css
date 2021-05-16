@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #3e3e3e;
+    font-size: 14px;
+    height: 100vh; 
+/*    set the body to the browser window*/
+/*
+    display: flex;
+    flex-direction: column; 
+*/
+    /*display child elements vertically*/
+}
+
+/*
+h1, h2, h3 {
+    font-weight: 500;
+    margin: 0 0 0.625em
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+p{
+    font-size: 1.0625rem;
+    line-height: 1.35em;    
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #2798de;
+}
+*/
+
+.header-row {
+    background: url(../img/banking.jpg) no-repeat;
+    background-size: cover;
+    height: 300px;
+    background-position: right;
+    color: #be0c35;
+/*    text-align: center;*/
+    display: flex; /* controls vertical alignment*/
+    flex-direction: column; /* controls vertical alignment*/
+    justify-content: center; /* controls vertical alignment*/
+    align-items: center; /* controls horizontal alignment*/
+    margin-bottom: 45px
+}
+
+
+
+wrapper {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;    
+     
+}
+
+header h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 3rem;
+    margin-bottom: 0.625rem;
+}
+
+header h2{
+    font-size: 2.5rem;
+}
+
+main {
+/*    min-height: 500px;*/
+    margin-top: 45px;
+}
+
+/*
+footer {
+    background: #333;
+    color: aliceblue;
+    font-size: 0.5rem;
+    font-size: 0.87rem;
+    padding: 20px;
+    margin-top: auto;  sticky footer
+}
+*/
+

@@ -1,3 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>XYZ Bank Churn Review</title>
+    <meta name="description" content="Use machine learning to predict who is going to get churned">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="header-row" id="header-row">
+    </div>
+    <div class="wrapper" id="wrapper" style="padding: 20px; width: 800px; max-width: 95%; margin: auto">
+        <form class="row g-3">
+            <div class="col-md-3">
+                <label for="validationDefault01" class="form-label">Customer Age</label>
+                <input type="text" class="form-control" id="validationDefault01" placeholder="Enter the customer's age..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault02" class="form-label">Gender</label>
+                <select class="form-select" id="validationDefault02" required style="font-size: 13px">
+                    <option selected disabled>Choose...</option>
+                    <option value=0>Female</option>
+                    <option value=1>Male</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault02" class="form-label">Dependants</label>
+                <input type="text" class="form-control" id="validationDefault03" placeholder="Number of dependants" required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault02" class="form-label">Marital Status</label>
+                <select class="form-select" id="validationDefault04" required style="font-size: 13px">
+                    <option selected disabled>Choose...</option>
+                    <option value=0>Divorced</option>
+                    <option value=1>Married</option>
+                    <option value=2>Single</option>
+                    <option value=3>Unknown</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault03" class="form-label">Education Level</label>
+                <select class="form-select" id="validationDefault05" required style="font-size: 13px">
+                    <option selected disabled>Choose...</option>
+                    <option value=1>Unknown</option>
+                    <option value=2>Uneducated</option>
+                    <option value=3>High School</option>
+                    <option value=4>College</option>
+                    <option value=5>Graduate</option>
+                    <option value=6>Post-Graduate</option>
+                    <option value=7>Doctorate</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault04" class="form-label">Income Category</label>
+                <select class="form-select" id="validationDefault06" required style="font-size: 13px">
+                    <option selected disabled>Choose...</option>
+                    <option value=1>Unknown</option>
+                    <option value=2>Less than $40K</option>
+                    <option value=3>$40K - 60K</option>
+                    <option value=4>$60K - $80K</option>
+                    <option value=5>$80K-$120K</option>
+                    <option value=6>$120K +</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault04" class="form-label">Card Category</label>
+                <select class="form-select" id="validationDefault07" required style="font-size: 13px">
+                    <option selected disabled value="">Choose...</option>
+                    <option value=1>Blue</option>
+                    <option value=2>Silver</option>
+                    <option value=3>Gold</option>
+                    <option value=4>Platinum</option>
+                </select>
+            </div>
+            <div class="col-12"></div>
+            <div class="col-12">
+                <button id="btn" class="btn btn-primary" type="submit">Check customer</button>
+            </div>
+        </form>
+        <div class="row">
+            <br>
+            <div class="col-md-6" id="msg">
+                <pre></pre>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+    <script>
+        const addCustomer = (ev) => {
+            ev.preventDefault(); //to stop the form submitting
+            let customer = {
+                cust_age: document.getElementById('validationDefault01').value,
+                dependants: document.getElementById('validationDefault02').value,
+                marital_status: document.getElementById('validationDefault03').value,
+                education: document.getElementById('validationDefault04').value,
+                income: document.getElementById('validationDefault05').value,
+                card_cat: document.getElementById('validationDefault06').value
+            }
+            let customers = [];
+            customers.push(customer);
+            document.querySelector('form').reset(); // to clear the form for the next entries
+
+            //for display purposes only
+            console.warn('Added', {
+                customers
+            });
+
+            customers = [];
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btn').addEventListener('click', addCustomer);
+        });
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+<!--
