@@ -1,3 +1,5 @@
+#NEED TO ACTIVATE PythonData ENVIRONMENT
+
 # import necessary libraries
 #from models import create_classes
 import os
