@@ -140,7 +140,10 @@ def predictiontest():
     predictions_forest_decoded = np.argmax(predictions_forest, axis=1)
 
     
-    return "predfictiontest"
+    # lists = predictions_forest_decoded.tolist()
+    # json_str = json.dumps(lists)
+    # return json_str
+    return str(predictions_forest_decoded[0])
 
 
 #################################################
