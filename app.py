@@ -1,6 +1,13 @@
 # import necessary libraries
 #from models import create_classes
 import os
+import pandas as pd
+import numpy as np
+from pickle import load
+import joblib
+
+
+
 from flask import (
     Flask,
     render_template,
@@ -8,16 +15,16 @@ from flask import (
     request,
     redirect)
 
-from scipy import stats
-from scipy.stats import randint
+# from scipy import stats
+# from scipy.stats import randint
 # Models
 # Tree Classifier
-from sklearn.tree import DecisionTreeClassifier
+# from sklearn.tree import DecisionTreeClassifier
 # Random Forest
-from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
-from sklearn.model_selection import RandomizedSearchCV
+# from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
+# from sklearn.model_selection import RandomizedSearchCV
 # Logistic Regression
-from sklearn.linear_model import LogisticRegression
+# from sklearn.linear_model import LogisticRegression
  
 
 #################################################
@@ -77,6 +84,23 @@ def individual():
 @app.route("/bulk")
 def bulk():
     return "Bulk data"
+
+
+#################################################
+# create route to test running data through prediction
+#################################################
+    #When ready to get Thomas's data use this
+#@app.route("/predictiontest", methods=["POST"])    
+@app.route("/predictiontest")
+def predictiontest():
+    
+        # this links data from Thomas's javascript file
+    # data = request.json
+
+        #For now create test data
+    
+    return "predfictiontest"
+
 
 #################################################
 # End
