@@ -139,11 +139,15 @@ def predictiontest():
     #Predictions - 0 is Attrited, 1 is Existing Customer
     predictions_forest_decoded = np.argmax(predictions_forest, axis=1)
 
-    
+    if (predictions_forest_decoded[0] == 0):
+        return (f"Customer is at risk of churn")
+    elif (predictions_forest_decoded[0] == 1):
+        return (f"Customer is not at risk of churn")
+
     # lists = predictions_forest_decoded.tolist()
     # json_str = json.dumps(lists)
     # return json_str
-    return str(predictions_forest_decoded[0])
+    # return str(predictions_forest_decoded[0])
 
 
 #################################################
