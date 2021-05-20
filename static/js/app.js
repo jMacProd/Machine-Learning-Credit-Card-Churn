@@ -40,10 +40,9 @@ function doCheckCustomer(event) {
             "Content-type": "application/json; charset=UTF-8"
         }
     }
+    ).then(
+        (customer) => console.log(customer)
     );
-    // ).then(
-    //     (customer) => showResult(customer)
-    // );
 
 }
 
