@@ -66,9 +66,11 @@ def home():
 # and passes through model,  predictions and returns outcome
 #################################################
 
-@app.route("/individual")
+@app.route("/individual", methods=["POST"])
 def individual():
-    return "Individul data"
+    customers = request.json    
+    console.log(customer)
+    return jsonify(customer)
 
 #################################################
 # create route that collects entered CSV on index.html

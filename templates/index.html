@@ -7,7 +7,8 @@
     <title>XYZ Bank Churn Review</title>
     <meta name="description" content="Use machine learning to predict who is going to get churned">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 
 <body>
@@ -28,11 +29,11 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationDefault02" class="form-label">Dependants</label>
+                <label for="validationDefault03" class="form-label">Dependants</label>
                 <input type="text" class="form-control" id="validationDefault03" placeholder="Number of dependants" required style="font-size: 13px">
             </div>
             <div class="col-md-3">
-                <label for="validationDefault02" class="form-label">Marital Status</label>
+                <label for="validationDefault04" class="form-label">Marital Status</label>
                 <select class="form-select" id="validationDefault04" required style="font-size: 13px">
                     <option selected disabled>Choose...</option>
                     <option value=0>Divorced</option>
@@ -42,7 +43,7 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Education Level</label>
+                <label for="validationDefault05" class="form-label">Education Level</label>
                 <select class="form-select" id="validationDefault05" required style="font-size: 13px">
                     <option selected disabled>Choose...</option>
                     <option value=1>Unknown</option>
@@ -55,7 +56,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Income Category</label>
+                <label for="validationDefault06" class="form-label">Income Category</label>
                 <select class="form-select" id="validationDefault06" required style="font-size: 13px">
                     <option selected disabled>Choose...</option>
                     <option value=1>Unknown</option>
@@ -67,7 +68,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Card Category</label>
+                <label for="validationDefault07" class="form-label">Card Category</label>
                 <select class="form-select" id="validationDefault07" required style="font-size: 13px">
                     <option selected disabled value="">Choose...</option>
                     <option value=1>Blue</option>
@@ -92,31 +93,45 @@
     </div>
 
     <script>
-        const addCustomer = (ev) => {
-            ev.preventDefault(); //to stop the form submitting
+        d3.select("#btn").on("click", (event) => doCheckCustomer(event));
+
+        function doCheckCustomer(event) {
+            d3.event.preventDefault();
+
+            console.log("Checking Customer");
+
+            let cust_age = d3.select("#validationDefault01").node().value;
+            let gender = d3.select("#validationDefault02").node().value;
+            let dependants = d3.select("#validationDefault03").node().value;
+            let marital_status = d3.select("#validationDefault04").node().value;
+            let education_level = d3.select("#validationDefault05").node().value;
+            let income = d3.select("#validationDefault06").node().value;
+            let card_cat = d3.select("#validationDefault07").node().value;
+
             let customer = {
-                cust_age: document.getElementById('validationDefault01').value,
-                gender: document.getElementById('validationDefault02').value,
-                dependants: document.getElementById('validationDefault03').value,
-                marital_status: document.getElementById('validationDefault04').value,
-                education_level: document.getElementById('validationDefault05').value,
-                income: document.getElementById('validationDefault06').value,
-                card_cat: document.getElementById('validationDefault07').value
+                "cust_age": parseFloat(cust_age),
+                "gender": parseFloat(gender),
+                "dependants": parseInt(dependants),
+                "marital_status": parseInt(marital_status),
+                "education_level": parseInt(education_level),
+                "income": parseInt(income),
+                "card_cat": parseInt(card_cat),
             }
-            let customers = [];
-            customers.push(customer);
-            document.querySelector('form').reset(); // to clear the form for the next entries
 
-            //for display purposes only
-            console.warn('Added', {
-                customers
-            });
+            console.log(customer);
 
-            customers = [];
+
+            d3.json(
+                "/individual", {
+                    method: "POST",
+                    body: JSON.stringify(customer),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                }
+            );
+
         }
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('btn').addEventListener('click', addCustomer);
-        });
 
     </script>
 
