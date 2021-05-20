@@ -77,8 +77,8 @@ def home():
 
 @app.route("/individual", methods=["POST"])
 def individual():
-    customers = request.json    
-    console.log(customer)
+    customer = request.json    
+    print(customer)
     return jsonify(customer)
 
 #################################################
