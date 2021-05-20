@@ -79,7 +79,63 @@ def home():
 def individual():
     customer = request.json    
     print(customer)
-    return jsonify(customer)
+    
+    df_column_names = ['Customer_Age', 'Gender',
+       'Dependent_count', 'Education_Level', 'Marital_Status',
+       'Income_Category', 'Card_Category', 'Months_on_book',
+       'Total_Relationship_Count', 'Months_Inactive_12_mon',
+       'Contacts_Count_12_mon', 'Credit_Limit', 'Total_Revolving_Bal',
+       'Avg_Open_To_Buy', 'Total_Amt_Chng_Q4_Q1', 'Total_Trans_Amt',
+       'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1', 'Avg_Utilization_Ratio']
+    
+    X_test_scaled = pd.DataFrame([customer])
+    # X_test_array = np.array([[43, 0, 2, 5, 1, 2, 1, 36, 6, 3, 2, 2570, 2107, 463, 0.651, 4058, 83, 0.766, 0.82]])
+    # X_test_scaled = pd.DataFrame([customer]).rename(columns=df_column_names)
+    #  df = pd.DataFrame([data]).rename(columns=rename_cols)[col_order]
+
+    X_scaler = pickle.load(open('04 Pre-processing Template/X_scaler.pkl', 'rb'))
+
+    #List columns that need scaling
+    col_names = ['Months_on_book', 'Total_Relationship_Count', 'Months_Inactive_12_mon',
+       'Contacts_Count_12_mon', 'Credit_Limit', 'Total_Revolving_Bal',
+       'Avg_Open_To_Buy', 'Total_Amt_Chng_Q4_Q1', 'Total_Trans_Amt',
+       'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1']
+    
+    # #Create dataframe of just the columns to be scaled
+    X_test_features = X_test_scaled[col_names]
+
+    # #Transform the data
+    X_test_features = X_scaler.transform(X_test_features.values)
+
+    # #Updated originally copied df with new scaled features
+    X_test_scaled[col_names] = X_test_features
+
+    # #Import ML Model using pickle
+    randomforest = pickle.load(open("05 Machine Learning Models/randomforest_model_trained.sav", 'rb'))
+
+    #Check that it works
+    predictions_forest = randomforest.predict(X_test_scaled)
+
+    #Predictions - 0 is Attrited, 1 is Existing Customer
+    predictions_forest_decoded = np.argmax(predictions_forest, axis=1)
+
+    
+    lists = predictions_forest.tolist() 
+    return jsonify({"result": lists})
+    
+    # lists = predictions_forest_decoded.tolist()
+    # json_str = json.dumps(lists)
+    # return json_str
+    # return str(predictions_forest_decoded[0])
+
+
+
+    # if (predictions_forest_decoded[0] == 0):
+    #     return (f"Customer is at risk of churn")
+    # elif (predictions_forest_decoded[0] == 1):
+    #     return (f"Customer is not at risk of churn")
+
+    # return jsonify(customer)
 
 #################################################
 # create route that collects entered CSV on index.html

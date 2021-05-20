@@ -25,30 +25,53 @@ function doCheckCustomer(event) {
     let total_amt_chng_Q4_Q1 = d3.select("#validationDefault15").node().value;
     let total_trans_amt = d3.select("#validationDefault16").node().value;
     let total_trans_ct = d3.select("#validationDefault17").node().value;
-    let total_ct_chng_Q4_Q1 = d3.select("#validationDefault17").node().value;
-    let avg_utilization_ratio = d3.select("#validationDefault17").node().value;
+    let total_ct_chng_Q4_Q1 = d3.select("#validationDefault18").node().value;
+    let avg_utilization_ratio = d3.select("#validationDefault19").node().value;
 
+
+    // let customer = {
+    //     "Customer_Age": parseInt(cust_age),
+    //     "Gender": parseInt(gender),
+    //     "Dependent_count": parseInt(dependants),
+    //     "Education_Level": parseInt(education_level),
+    //     "Marital_Status": parseInt(marital_status),
+    //     "Income_Category": parseInt(income),
+    //     "Card_Category": parseInt(card_cat),
+    //     "Months_on_book": parseInt(months_on_book),
+    //     "Total_Relationship_Count": parseInt(total_Relationship_Count),
+    //     "Months_Inactive_12_mon": parseInt(months_inactive_12_mon),
+    //     "Contacts_Count_12_mon": parseInt(contacts_Count_12_mon),
+    //     "Credit_Limit": parseInt(credit_Limit),
+    //     "Total_Revolving_Bal": parseInt(total_revolving_bal),
+    //     "Avg_Open_To_Buy": parseInt(avg_open_to_buy),
+    //     "Total_Amt_Chng_Q4_Q1": parseFloat(total_amt_chng_Q4_Q1),
+    //     "Total_Trans_Amt": parseInt(total_trans_amt),
+    //     "Total_Trans_Ct": parseInt(total_trans_ct),
+    //     "Total_Ct_Chng_Q4_Q1": parseFloat(total_ct_chng_Q4_Q1),
+    //     "Avg_Utilization_Ratio": parseFloat(avg_utilization_ratio),
+
+    // }
 
     let customer = {
-        "cust_age": parseFloat(cust_age),
-        "gender": parseFloat(gender),
-        "dependants": parseInt(dependants),
-        "marital_status": parseInt(marital_status),
-        "education_level": parseInt(education_level),
-        "income": parseInt(income),
-        "card_cat": parseInt(card_cat),
-        "months_on_book": parseInt(months_on_book),
-        "total_Relationship_Count": parseFloat(total_Relationship_Count),
-        "months_inactive_12_mon": parseFloat(months_inactive_12_mon),
-        "contacts_Count_12_mon": parseFloat(contacts_Count_12_mon),
-        "credit_Limit": parseFloat(credit_Limit),
-        "total_revolving_bal": parseFloat(total_revolving_bal),
-        "avg_open_to_buy": parseFloat(avg_open_to_buy),
-        "total_amt_chng_Q4_Q1": parseFloat(total_amt_chng_Q4_Q1),
-        "total_trans_amt": parseFloat(total_trans_amt),
-        "total_trans_ct": parseFloat(total_trans_ct),
-        "total_ct_chng_Q4_Q1": parseFloat(total_ct_chng_Q4_Q1),
-        "avg_utilization_ratio": parseFloat(avg_utilization_ratio),
+        "Customer_Age": parseInt(45),
+        "Gender": parseInt(1),
+        "Dependent_count": parseInt(3),
+        "Education_Level": parseInt(3),
+        "Marital_Status": parseInt(1),
+        "Income_Category": parseInt(4),
+        "Card_Category": parseInt(1),
+        "Months_on_book": parseInt(39),
+        "Total_Relationship_Count": parseInt(5),
+        "Months_Inactive_12_mon": parseInt(1),
+        "Contacts_Count_12_mon": parseInt(3),
+        "Credit_Limit": parseInt(12345),
+        "Total_Revolving_Bal": parseInt(1244),
+        "Avg_Open_To_Buy": parseInt(12345),
+        "Total_Amt_Chng_Q4_Q1": parseFloat(1.335),
+        "Total_Trans_Amt": parseInt(1144),
+        "Total_Trans_Ct": parseInt(42),
+        "Total_Ct_Chng_Q4_Q1": parseFloat(1.625),
+        "Avg_Utilization_Ratio": parseFloat(0.061),
 
     }
 
