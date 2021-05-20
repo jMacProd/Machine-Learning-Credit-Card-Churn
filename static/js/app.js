@@ -1,64 +1,70 @@
 console.log("App Ready");
 
-d3.select("#doCheckTicket").on("click", (event) => doCheckTicket(event));
+d3.select("#btn").on("click", (event) => doCheckCustomer(event));
 
 d3.select("#alertOutcome").style("display", "none");
 
-function doCheckTicket(event) {
+
+function doCheckCustomer(event) {
     d3.event.preventDefault();
-    d3.select("#alertOutcome").style("display", "none");
-    console.log("Checking Ticket");
 
-    let age = d3.select("#inputAge").node().value;
-    let gender = d3.select("#inputGender").node().value;
-    let passengerClass = d3.select("#inputPassengerClass").node().value;
-    let numberOfSiblings = d3.select("#inputNumberOfSiblings").node().value;
-    let numberOfParents = d3.select("#inputNumberOfParents").node().value;
-    let fare = d3.select("#inputFare").node().value;
-    let portOfEmbarkment = d3.select("#inputPortOfEmbarkment").node().value;
+    console.log("Checking Customer");
 
-    let data = {
-        "age": parseFloat(age),
-        "gender": gender,
-        "passengerClass": parseInt(passengerClass),
-        "numberOfSiblings": parseInt(numberOfSiblings),
-        "numberOfParents": parseInt(numberOfParents),
-        "fare": parseFloat(fare),
-        "portOfEmbarkment": portOfEmbarkment,
+    let cust_age = d3.select("#validationDefault01").node().value;
+    let gender = d3.select("#validationDefault02").node().value;
+    let dependants = d3.select("#validationDefault03").node().value;
+    let marital_status = d3.select("#validationDefault04").node().value;
+    let education_level = d3.select("#validationDefault05").node().value;
+    let income = d3.select("#validationDefault06").node().value;
+    let card_cat = d3.select("#validationDefault07").node().value;
+
+    let customer = {
+        "cust_age": parseFloat(cust_age),
+        "gender": parseFloat(gender),
+        "dependants": parseInt(dependants),
+        "marital_status": parseInt(marital_status),
+        "education_level": parseInt(education_level),
+        "income": parseInt(income),
+        "card_cat": parseInt(card_cat),
     }
 
-    console.log(data);
+    console.log(customer);
+
+    document.querySelector('form').reset(); // to clear the form for the next entries
+
 
     d3.json(
-        "/predict", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
+        "/individual", {
+        method: "POST",
+        body: JSON.stringify(customer),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
         }
+    }
     ).then(
-        (data) => showResult(data)
+        (customer) => showResult(customer)
     );
 
 }
 
-function showResult(data) {
-    console.log("showResult");
-    console.log(data);
+// // needs to be adjusted for customer churn output
 
-    var outcome = "Unknown";
-    let alertOutcomeDisplay = d3.select("#alertOutcome");
+// function showResult(customer) {
+//     console.log("showResult");
+//     console.log(customer);
 
-    if (data["result"][0] == 1) {
-        outcome = "Survived";
-        alertOutcomeDisplay.attr("class", "alert alert-success");
-    } else if (data["result"][0] == 0) {
-        outcome = "Dead";
-        alertOutcomeDisplay.attr("class", "alert alert-info");
-    }
+//     var outcome = "Unknown";
+//     let alertOutcomeDisplay = d3.select("#alertOutcome");
 
-    alertOutcomeDisplay.text(outcome);
-    alertOutcomeDisplay.style("display", "block");
+//     if (customer["result"][0] == 1) {
+//         outcome = "Survived";
+//         alertOutcomeDisplay.attr("class", "alert alert-success");
+//     } else if (customer["result"][0] == 0) {
+//         outcome = "Dead";
+//         alertOutcomeDisplay.attr("class", "alert alert-info");
+//     }
 
-}
+//     alertOutcomeDisplay.text(outcome);
+//     alertOutcomeDisplay.style("display", "block");
+
+// }
