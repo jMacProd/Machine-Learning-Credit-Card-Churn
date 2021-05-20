@@ -15,6 +15,9 @@ body {
     /*display child elements vertically*/
 }
 
+.form-label{
+    font-size: 12px;
+}
 
 
 .header-row {
