@@ -1,4 +1,4 @@
-d3.select("#btn").on("click", (event) => doCheckCustomer(event));
+ d3.select("#btn").on("click", (event) => doCheckCustomer(event));
 
 function doCheckCustomer(event) {
     d3.event.preventDefault();
