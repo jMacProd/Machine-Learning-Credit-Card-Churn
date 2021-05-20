@@ -1,9 +1,8 @@
 console.log("App Ready");
 
-d3.select("#btn").on("click", (event) => doCheckCustomer(event));
-
 d3.select("#alertOutcome").style("display", "none");
 
+d3.select("#btn").on("click", (event) => doCheckCustomer(event));
 
 function doCheckCustomer(event) {
     d3.event.preventDefault();
@@ -41,9 +40,10 @@ function doCheckCustomer(event) {
             "Content-type": "application/json; charset=UTF-8"
         }
     }
-    ).then(
-        (customer) => showResult(customer)
     );
+    // ).then(
+    //     (customer) => showResult(customer)
+    // );
 
 }
 
