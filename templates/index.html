@@ -7,8 +7,9 @@
     <title>XYZ Bank Churn Review</title>
     <meta name="description" content="Use machine learning to predict who is going to get churned">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <link rel="stylesheet" href="../static/css/styles.css">
-    </head>
+</head>
 
 <body>
     <div class="header-row" id="header-row">
@@ -28,11 +29,11 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationDefault02" class="form-label">Dependants</label>
+                <label for="validationDefault03" class="form-label">Dependants</label>
                 <input type="text" class="form-control" id="validationDefault03" placeholder="Number of dependants" required style="font-size: 13px">
             </div>
             <div class="col-md-3">
-                <label for="validationDefault02" class="form-label">Marital Status</label>
+                <label for="validationDefault04" class="form-label">Marital Status</label>
                 <select class="form-select" id="validationDefault04" required style="font-size: 13px">
                     <option selected disabled>Choose...</option>
                     <option value=0>Divorced</option>
@@ -42,7 +43,7 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Education Level</label>
+                <label for="validationDefault05" class="form-label">Education Level</label>
                 <select class="form-select" id="validationDefault05" required style="font-size: 13px">
                     <option selected disabled>Choose...</option>
                     <option value=1>Unknown</option>
@@ -55,7 +56,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Income Category</label>
+                <label for="validationDefault06" class="form-label">Income Category</label>
                 <select class="form-select" id="validationDefault06" required style="font-size: 13px">
                     <option selected disabled>Choose...</option>
                     <option value=1>Unknown</option>
@@ -67,7 +68,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Card Category</label>
+                <label for="validationDefault07" class="form-label">Card Category</label>
                 <select class="form-select" id="validationDefault07" required style="font-size: 13px">
                     <option selected disabled value="">Choose...</option>
                     <option value=1>Blue</option>
@@ -75,6 +76,54 @@
                     <option value=3>Gold</option>
                     <option value=4>Platinum</option>
                 </select>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault08" class="form-label">Months on book</label>
+                <input type="text" class="form-control" id="validationDefault08" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault09" class="form-label">Total relationship Count</label>
+                <input type="text" class="form-control" id="validationDefault09" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault10" class="form-label">Months inactive 12 months</label>
+                <input type="text" class="form-control" id="validationDefault10" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault11" class="form-label">Contacts last 12 months</label>
+                <input type="text" class="form-control" id="validationDefault11" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault12" class="form-label">Credit limit</label>
+                <input type="text" class="form-control" id="validationDefault12" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault13" class="form-label">Total revolving balance</label>
+                <input type="text" class="form-control" id="validationDefault13" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault14" class="form-label">Avg open to buy</label>
+                <input type="text" class="form-control" id="validationDefault14" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault15" class="form-label">Total amount change Q4-Q1</label>
+                <input type="text" class="form-control" id="validationDefault15" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault16" class="form-label">Total transaction amount</label>
+                <input type="text" class="form-control" id="validationDefault16" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault17" class="form-label">Total transaction count</label>
+                <input type="text" class="form-control" id="validationDefault17" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault18" class="form-label">Total transaction count change</label>
+                <input type="text" class="form-control" id="validationDefault18" placeholder="..." required style="font-size: 13px">
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault19" class="form-label">Avg utilization ratio</label>
+                <input type="text" class="form-control" id="validationDefault19" placeholder="..." required style="font-size: 13px">
             </div>
             <div class="col-12"></div>
             <div class="col-12">
@@ -90,50 +139,19 @@
             <div class="col-md-3"></div>
         </div>
     </div>
-
-    <script>
-        const addCustomer = (ev) => {
-            ev.preventDefault(); //to stop the form submitting
-            let customer = {
-                cust_age: document.getElementById('validationDefault01').value,
-                gender: document.getElementById('validationDefault02').value,
-                dependants: document.getElementById('validationDefault03').value,
-                marital_status: document.getElementById('validationDefault04').value,
-                education_level: document.getElementById('validationDefault05').value,
-                income: document.getElementById('validationDefault06').value,
-                card_cat: document.getElementById('validationDefault07').value
-            }
-            let customers = [];
-            customers.push(customer);
-            document.querySelector('form').reset(); // to clear the form for the next entries
-
-            //for display purposes only
-            console.warn('Added', {
-                customers
-            });
-
-            customers = [];
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('btn').addEventListener('click', addCustomer);
-        });
-
-    </script>
-
-
+    <script type="text/javascript" src="../static/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-<p>These button are here just to check the app routes are working</p>
-<a href='/individual'>
-    <button type="button">Submit individual data</button>
-</a>
-<a href='/bulk'>
-    <button type="button">Submit bulk data</button></a>
+    <p>These button are here just to check the app routes are working</p>
+    <a href='/individual'>
+        <button type="button">Submit individual data</button>
+    </a>
+    <a href='/bulk'>
+        <button type="button">Submit bulk data</button></a>
 
-<a href='/predictiontest'>
-    <button type="button">Submit predictiontest data</button></a>
+    <a href='/predictiontest'>
+        <button type="button">Submit predictiontest data</button></a>
 
 </body>
 
 </html>
-
