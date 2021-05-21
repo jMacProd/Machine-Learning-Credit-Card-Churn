@@ -105,77 +105,55 @@ function doCheckCustomer(event) {
     
         if (outcome == 0) {
             prediction = "Customer is at risk of churn";
-    
-            // console.log("Prediction1");
-            // console.log("Customer is at risk of churn");
+
         }
         else if (outcome == 1) {
             prediction = "Customer is not at risk of churn";
-            // console.log("Prediction2");
-        //     console.log(prediction);
-            
-        
-        }
-        // predictionbox.append("p").text("Input");
-        // predictionbox.append("p").text("Customer_Age: " + customer["Customer_Age"]);
-        // predictionbox.append("p").text("Gender: " + customer["Gender"]);
-        // predictionbox.append("p").text("Dependent_count: " + customer["Dependent_count"]);
-        // predictionbox.append("p").text("Education_Level: " + customer["Education_Level"]);
-        // predictionbox.append("p").text("Marital_Status: " + customer["Marital_Status"]);
-        // predictionbox.append("p").text("Income_Category: " + customer["Income_Category"]);
-        // predictionbox.append("p").text("Card_Category Level: " + customer["Card_Category"]);
-        // predictionbox.append("p").text("Months_on_book: " + customer["Months_on_book"]);
-        // predictionbox.append("p").text("Total_Relationship_Count : " + customer["Total_Relationship_Count"]);
-        // predictionbox.append("p").text("Months_Inactive_12_mon: " + customer["Months_Inactive_12_mon"]);
-        // predictionbox.append("p").text("Contacts_Count_12_mon: " + customer["Contacts_Count_12_mon"]);
-        // predictionbox.append("p").text("Credit_Limit: " + customer["Credit_Limit"]);
-        // predictionbox.append("p").text("Total_Revolving_Bal: " + customer["Total_Revolving_Bal"]);
-        // predictionbox.append("p").text("Avg_Open_To_Buy: " + customer["Avg_Open_To_Buy"]);
-        // predictionbox.append("p").text("Total_Amt_Chng_Q4_Q1: " + customer["Total_Amt_Chng_Q4_Q1"]);
-        // predictionbox.append("p").text("Total_Trans_Amt: " + customer["Total_Trans_Amt"]);
-        // predictionbox.append("p").text("Total_Trans_Ct: " + customer["Total_Trans_Ct"]);
-        // predictionbox.append("p").text("Total_Ct_Chng_Q4_Q1: " + customer["Total_Ct_Chng_Q4_Q1"]);
-        // predictionbox.append("p").text("Avg_Utilization_Ratio: " + customer["Avg_Utilization_Ratio"]);
-        // predictionbox.append("p").text("Prediction");
-        // predictionbox.append("p").text(prediction);
 
-  
-        //     <tbody></tbody>
-        // </table>
-        
+        }
+
         addtable = predictionbox.append("table");
         tableatttri = addtable.attr("id", "prediction_table")
             .attr("class", "table table-striped");
-        tablehead = addtable.append("thead").append("th").attr("class", "table-head").text("Input");
+        tablehead1 = addtable.append("thead").append("th").attr("class", "table-head").text("Input");
         tablebody = addtable.append("tbody");
-        tablerow = tablebody.append("tr");
-        age = tablerow.append("td").text("Customer_Age: " + customer["Customer_Age"]);
-        gender = tablerow.append("td").text("Gender: " + customer["Gender"]);
-        depend = tablerow.append("td").text("Dependent_count: " + customer["Dependent_count"]);
-        educat = tablerow.append("td").text("Education_Level: " + customer["Education_Level"]);
+        tablerow1 = tablebody.append("tr");
+        age = tablerow1.append("td").text("Age: " + customer["Customer_Age"]);
+        gender = tablerow1.append("td").text("Gender: " + customer["Gender"]);
+        depend = tablerow1.append("td").text("Dependents: " + customer["Dependent_count"]);
+        educat = tablerow1.append("td").text("Education: " + customer["Education_Level"]);
 
- 
-
-        // predictionbox.append("p").text("Input");
-        // predictionbox.append("p").text("Customer_Age: " + customer["Customer_Age"] + " - Gender: " + customer["Gender"] + " - Dependent_count: " + customer["Dependent_count"] + "Education_Level: " + customer["Education_Level"]);
-        // predictionbox.append("p").text("Marital_Status: " + customer["Marital_Status"]);
-        // predictionbox.append("p").text("Income_Category: " + customer["Income_Category"]);
-        // predictionbox.append("p").text("Card_Category Level: " + customer["Card_Category"]);
-        // predictionbox.append("p").text("Months_on_book: " + customer["Months_on_book"]);
-        // predictionbox.append("p").text("Total_Relationship_Count : " + customer["Total_Relationship_Count"]);
-        // predictionbox.append("p").text("Months_Inactive_12_mon: " + customer["Months_Inactive_12_mon"]);
-        // predictionbox.append("p").text("Contacts_Count_12_mon: " + customer["Contacts_Count_12_mon"]);
-        // predictionbox.append("p").text("Credit_Limit: " + customer["Credit_Limit"]);
-        // predictionbox.append("p").text("Total_Revolving_Bal: " + customer["Total_Revolving_Bal"]);
-        // predictionbox.append("p").text("Avg_Open_To_Buy: " + customer["Avg_Open_To_Buy"]);
-        // predictionbox.append("p").text("Total_Amt_Chng_Q4_Q1: " + customer["Total_Amt_Chng_Q4_Q1"]);
-        // predictionbox.append("p").text("Total_Trans_Amt: " + customer["Total_Trans_Amt"]);
-        // predictionbox.append("p").text("Total_Trans_Ct: " + customer["Total_Trans_Ct"]);
-        // predictionbox.append("p").text("Total_Ct_Chng_Q4_Q1: " + customer["Total_Ct_Chng_Q4_Q1"]);
-        // predictionbox.append("p").text("Avg_Utilization_Ratio: " + customer["Avg_Utilization_Ratio"]);
-        // predictionbox.append("p").text("Prediction");
-        // predictionbox.append("p").text(prediction);
+        tablerow2 = tablebody.append("tr");
+        marry = tablerow2.append("td").text("Marital Status: " + customer["Marital_Status"]);
+        blank = tablerow2.append("td");
+        income = tablerow2.append("td").text("Income: " + customer["Income_Category"]);
+        card_cat = tablerow2.append("td").text("Card Level: " + customer["Card_Category"]);
         
+        tablerow3 = tablebody.append("tr");
+        book = tablerow3.append("td").text("Months on book: " + customer["Months_on_book"]);
+        relat = tablerow3.append("td").text("Relationship Count : " + customer["Total_Relationship_Count"]);
+        inact = tablerow3.append("td").text("Months Inactive: " + customer["Months_Inactive_12_mon"]);
+        contact = tablerow3.append("td").text("Contacts Count: " + customer["Contacts_Count_12_mon"]);
+
+        tablerow4 = tablebody.append("tr");
+        credit = tablerow4.append("td").text("Credit Limit: " + customer["Credit_Limit"]);
+        bal = tablerow4.append("td").text("Total Revolving Bal: " + customer["Total_Revolving_Bal"]);
+        openbuy = tablerow4.append("td").text("Avg Open To Buy: " + customer["Avg_Open_To_Buy"]);
+        Amtchange = tablerow4.append("td").text("Total Amt Chng: " + customer["Total_Amt_Chng_Q4_Q1"]);
+
+        tablerow5 = tablebody.append("tr");
+        totalAmt = tablerow5.append("td").text("Total Trans Amt: " + customer["Total_Trans_Amt"]);
+        totalCnt = tablerow5.append("td").text("Total Trans Ct: " + customer["Total_Trans_Ct"]);
+        Cntchange = tablerow5.append("td").text("Total Ct Chng: " + customer["Total_Ct_Chng_Q4_Q1"]);
+        util = tablerow5.append("td").text("Avg Util. Ratio: " + customer["Avg_Utilization_Ratio"]);
+
+        addtable2 = predictionbox.append("table");
+        tableatttri = addtable.attr("id", "prediction_table")
+            .attr("class", "table table-striped");
+        
+        tablehead2 = addtable.append("thead");
+        headrow2 = tablehead2.append("th").attr("class", "table-head").text("Prediction:");
+        headrow2 = tablehead2.append("th").text(prediction);
 
     }
 
