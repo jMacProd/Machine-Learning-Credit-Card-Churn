@@ -99,17 +99,21 @@ function showResult(customer) {
     console.log(customer);
 
     var prediction = ""
+    let alertOutcomeDisplay = d3.select("#msg");
 
 
     if (customer == 0) {
-        var prediction = "Customer is at risk of churn";
+        prediction = "Customer is at risk of churn";
+
         // console.log("Prediction1");
         // console.log("Customer is at risk of churn");
     }
-    else if (customer[0] == 1) {
-        var prediction = "Customer is not at risk of churn";
+    else if (customer == 1) {
+        prediction = "Customer is not at risk of churn";
         // console.log("Prediction2");
     //     console.log(prediction);
+        
     
     }
+    alertOutcomeDisplay.text(prediction);
 }
