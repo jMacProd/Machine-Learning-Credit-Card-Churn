@@ -52,6 +52,8 @@ function doCheckCustomer(event) {
 
     // }
 
+    // this is testing code so I don't have to keep entering values.
+    // Remember comment this out and to re-add commented code above
     let customer = {
         "Customer_Age": parseInt(45),
         "Gender": parseInt(1),
@@ -76,6 +78,7 @@ function doCheckCustomer(event) {
     }
 
     console.log(customer);
+    console.log(customer["Customer_Age"]);
 
     document.querySelector('form').reset(); // to clear the form for the next entries
 
@@ -89,31 +92,59 @@ function doCheckCustomer(event) {
             }
         }
     ).then(
-        (customer) => showResult(customer)
+        (outcome) => showResult(outcome)
     );
 
+    function showResult(outcome) {
+        console.log("Encoded");
+        console.log(outcome);
+    
+        var prediction = ""
+        let predictionbox = d3.select("#msg");
+    
+    
+        if (outcome == 0) {
+            prediction = "Customer is at risk of churn";
+    
+            // console.log("Prediction1");
+            // console.log("Customer is at risk of churn");
+        }
+        else if (outcome == 1) {
+            prediction = "Customer is not at risk of churn";
+            // console.log("Prediction2");
+        //     console.log(prediction);
+            
+        
+        }
+        // predictionbox.append("p");
+        predictionbox.append("p").text("Prediction");
+        predictionbox.append("p").text("Age: " + customer["Customer_Age"]);
+        predictionbox.append("p").text(prediction);
+    }
+
 }
 
-function showResult(customer) {
-    console.log("Encoded");
-    console.log(customer);
+// function showResult(outcome) {
+//     console.log("Encoded");
+//     console.log(outcome);
 
-    var prediction = ""
-    let alertOutcomeDisplay = d3.select("#msg");
+//     var prediction = ""
+//     let predictionbox = d3.select("#msg");
 
 
-    if (customer == 0) {
-        prediction = "Customer is at risk of churn";
+//     if (outcome == 0) {
+//         prediction = "Customer is at risk of churn";
 
-        // console.log("Prediction1");
-        // console.log("Customer is at risk of churn");
-    }
-    else if (customer == 1) {
-        prediction = "Customer is not at risk of churn";
-        // console.log("Prediction2");
-    //     console.log(prediction);
+//         // console.log("Prediction1");
+//         // console.log("Customer is at risk of churn");
+//     }
+//     else if (outcome == 1) {
+//         prediction = "Customer is not at risk of churn";
+//         // console.log("Prediction2");
+//     //     console.log(prediction);
         
     
-    }
-    alertOutcomeDisplay.text(prediction);
-}
+//     }
+//     // predictionbox.append("p");
+//     predictionbox.text("prediction");
+// }
