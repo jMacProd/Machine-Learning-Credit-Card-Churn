@@ -226,6 +226,8 @@
                     console.log(`prediction_list[0]: ${bulkoutcome[0]}`)
                     console.log(`There are ${bulkoutcome.length} records in this table.`);
 
+
+
                     var prediction = ""
                     let cleartags = d3.select("#msg").selectAll("*").remove();
                     let predictionbox = d3.select("#msg");
@@ -255,15 +257,20 @@
                     headercell20 = headerrow.append("th").text("Prediction");
                     tbody = addtable.append("tbody");
 
+                    let n = 0
                     data.forEach(function(tablevalues){
-                        // console.log(prediction);
+                         // console.log("bulkoutcome[n]: " + bulkoutcome[n])
                         var row = tbody.append("tr");
-
                         Object.entries(tablevalues).forEach(function([key, value]) {
                             // console.log(`value: ${value}`);
                             var cell = row.append("td")
                             cell.text(value);
+
                         });
+
+                        var predictcell = row.append("td")
+                        predictcell.text(bulkoutcome[n])
+                        n = n+1
                         
                     }
                     )
