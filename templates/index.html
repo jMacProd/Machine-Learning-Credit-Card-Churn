@@ -234,28 +234,36 @@
                         .attr("class", "table table-striped");
                     headerrow = addtable.append("thead").append("tr");
                     headercell1 = headerrow.append("th").text("Age");
-                    headercell1 = headerrow.append("th").text("Gender");
-                    headercell1 = headerrow.append("th").text("Dependants");
-                    headercell1 = headerrow.append("th").text("Marital Status");
-                    headercell1 = headerrow.append("th").text("Education");
-                    headercell1 = headerrow.append("th").text("Income");
-                    headercell1 = headerrow.append("th").text("Card");
-                    headercell1 = headerrow.append("th").text("M.O.B");
-                    headercell1 = headerrow.append("th").text("Relationships");
-                    headercell1 = headerrow.append("th").text("Inactive");
-                    headercell1 = headerrow.append("th").text("Contacts");
-                    headercell1 = headerrow.append("th").text("Credit");
-                    headercell1 = headerrow.append("th").text("Revolving");
-                    headercell1 = headerrow.append("th").text("Avg open");
-                    headercell1 = headerrow.append("th").text("Amt Change");
-                    headercell1 = headerrow.append("th").text("Total trans amt");
-                    headercell1 = headerrow.append("th").text("Total trans count");
-                    headercell1 = headerrow.append("th").text("Total trans change");
-                    headercell1 = headerrow.append("th").text("Ratio");
+                    headercell2 = headerrow.append("th").text("Gender");
+                    headercell3 = headerrow.append("th").text("Dependants");
+                    headercell4 = headerrow.append("th").text("Marital Status");
+                    headercell5 = headerrow.append("th").text("Education");
+                    headercell6 = headerrow.append("th").text("Income");
+                    headercell7 = headerrow.append("th").text("Card");
+                    headercell8 = headerrow.append("th").text("M.O.B");
+                    headercell9 = headerrow.append("th").text("Relationships");
+                    headercell10 = headerrow.append("th").text("Inactive");
+                    headercell11= headerrow.append("th").text("Contacts");
+                    headercell12 = headerrow.append("th").text("Credit");
+                    headercell13 = headerrow.append("th").text("Revolving");
+                    headercell14 = headerrow.append("th").text("Avg open");
+                    headercell15 = headerrow.append("th").text("Amt Change");
+                    headercell16 = headerrow.append("th").text("Total trans amt");
+                    headercell17 = headerrow.append("th").text("Total trans count");
+                    headercell18 = headerrow.append("th").text("Total trans change");
+                    headercell19 = headerrow.append("th").text("Ratio");
+                    headercell20 = headerrow.append("th").text("Prediction");
                     tbody = addtable.append("tbody");
 
-                    bulkoutcome.forEach(function(prediction){
-                        var row = tbody.append("td");
+                    data.forEach(function(tablevalues){
+                        // console.log(prediction);
+                        var row = tbody.append("tr");
+
+                        Object.entries(tablevalues).forEach(function([key, value]) {
+                            // console.log(`value: ${value}`);
+                            var cell = row.append("td")
+                            cell.text(value);
+                        });
                         
                     }
                     )
