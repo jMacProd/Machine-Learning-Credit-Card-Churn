@@ -139,19 +139,107 @@
             <div class="col-md-3"></div>
             <div class="col-md-3"></div>
         </div>
+        <div>
+            This is a test div
+        </div>
     </div>
     <script type="text/javascript" src="../static/js/app.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/app2.js"></script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-    <!-- <p>These button are here just to check the app routes are working</p>
-    <a href='/individual'>
-        <button type="button">Submit individual data</button>
-    </a>
-    <a href='/bulk'>
-        <button type="button">Submit bulk data</button></a>
+    <!-- https://sebhastian.com/javascript-csv-to-array/#:~:text=To%20parse%20a%20CSV%20string,the%20row%20as%20the%20values. -->
+    <!-- https://github.com/nsebhastian/javascript-csv-array-example/blob/master/index.html -->
+    <form id="myForm">
+        <input type="file" id="csvFile" accept=".csv" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    <script>
+        const myForm = document.getElementById("myForm");
+        const csvFile = document.getElementById("csvFile");
+    
+        function csvToArray(str, delimiter = ",") {
+    
+          // slice from start of text to the first \n index
+          // use split to create an array from string by delimiter
+          const headers = str.slice(0, str.indexOf("\r\n")).split(delimiter);
+        //   headers = headers.split("\r")
+    
+          // slice from \n index + 1 to the end of the text
+          // use split to create an array of each csv value row
+          const rows = str.slice(str.indexOf("\r\n") + 1).split("\r\n");
+          
 
-    <a href='/predictiontest'>
-        <button type="button">Submit predictiontest data</button></a> -->
+    
+          // Map the rows
+          // split values from each row into an array
+          // use headers.reduce to create an object
+          // object properties derived from headers:values
+          // the object passed as an element of the array
+          const arr = rows.map(function (row) {
+            const values = row.split(delimiter);
+            const el = headers.reduce(function (object, header, index) {
+              object[header] = values[index];
+              return object;
+            }, {});
+            return el;
+          });
+    
+          // return the array
+          return arr;
+        }
+    
+        myForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const input = csvFile.files[0];
+          const reader = new FileReader();
+    
+          reader.onload = function (e) {
+            const text = e.target.result;
+            const data = csvToArray(text);
+            // document.write(JSON.stringify(data));
+            
+            console.log("Check data: ", data);
+            // data = data.split("\r");
+
+
+            
+            fetch(
+                "/bulk", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                },
+                
+            }
+            ).then((bulkoutcome) => bulkshowResult(bulkoutcome)
+            );
+
+            function bulkshowResult(bulkoutcome) {
+                console.log("bulkreturn");
+                console.log(bulkoutcome);
+
+                var prediction = ""
+                let predictionbox = d3.select("#msg");
+
+
+
+
+
+            }   
+
+
+          };
+          
+          reader.readAsText(input);
+        });
+
+        
+    </script>
+
+
 
 </body>
 

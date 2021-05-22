@@ -1,3 +1,5 @@
+
+
  d3.select("#btn").on("click", (event) => doCheckCustomer(event));
 
 function doCheckCustomer(event) {
@@ -55,25 +57,25 @@ function doCheckCustomer(event) {
     // this is testing code so I don't have to keep entering values.
     // Remember comment this out and to re-add commented code above
     let customer = {
-        "Customer_Age": parseInt(45),
-        "Gender": parseInt(1),
-        "Dependent_count": parseInt(3),
-        "Education_Level": parseInt(3),
+        "Customer_Age": parseInt(62),
+        "Gender": parseInt(0),
+        "Dependent_count": parseInt(0),
+        "Education_Level": parseInt(5),
         "Marital_Status": parseInt(1),
-        "Income_Category": parseInt(4),
+        "Income_Category": parseInt(2),
         "Card_Category": parseInt(1),
-        "Months_on_book": parseInt(39),
-        "Total_Relationship_Count": parseInt(5),
-        "Months_Inactive_12_mon": parseInt(1),
+        "Months_on_book": parseInt(49),
+        "Total_Relationship_Count": parseInt(2),
+        "Months_Inactive_12_mon": parseInt(3),
         "Contacts_Count_12_mon": parseInt(3),
-        "Credit_Limit": parseInt(12345),
-        "Total_Revolving_Bal": parseInt(1244),
-        "Avg_Open_To_Buy": parseInt(12345),
-        "Total_Amt_Chng_Q4_Q1": parseFloat(1.335),
-        "Total_Trans_Amt": parseInt(1144),
-        "Total_Trans_Ct": parseInt(42),
-        "Total_Ct_Chng_Q4_Q1": parseFloat(1.625),
-        "Avg_Utilization_Ratio": parseFloat(0.061),
+        "Credit_Limit": parseInt(1438.3),
+        "Total_Revolving_Bal": parseInt(0),
+        "Avg_Open_To_Buy": parseInt(1438.3),
+        "Total_Amt_Chng_Q4_Q1": parseFloat(1.047),
+        "Total_Trans_Amt": parseInt(692),
+        "Total_Trans_Ct": parseInt(16),
+        "Total_Ct_Chng_Q4_Q1": parseFloat(.6),
+        "Avg_Utilization_Ratio": parseFloat(0),
 
     }
 
@@ -81,6 +83,8 @@ function doCheckCustomer(event) {
     console.log(customer["Customer_Age"]);
 
     document.querySelector('form').reset(); // to clear the form for the next entries
+
+
 
 
     d3.json(
@@ -91,7 +95,8 @@ function doCheckCustomer(event) {
                 "Content-type": "application/json; charset=UTF-8"
             }
         }
-    ).then((outcome) => showResult(outcome)
+    ).then(
+        (outcome) => showResult(outcome)
     );
 
     function showResult(outcome) {
@@ -99,7 +104,6 @@ function doCheckCustomer(event) {
         console.log(outcome);
     
         var prediction = ""
-        cleartags = d3.select("#msg").selectAll("*").remove();
         let predictionbox = d3.select("#msg");
     
     
@@ -157,71 +161,29 @@ function doCheckCustomer(event) {
 
     }
 
+
+
+function showResult(outcome) {
+    console.log("Encoded");
+    console.log(outcome);
+
+    var prediction = ""
+    let predictionbox = d3.select("#msg");
+
+
+    if (outcome == 0) {
+        prediction = "Customer is at risk of churn";
+
+        // console.log("Prediction1");
+        // console.log("Customer is at risk of churn");
+    }
+    else if (outcome == 1) {
+        prediction = "Customer is not at risk of churn";
+        // console.log("Prediction2");
+    //     console.log(prediction);
+        
+    
+    }
+    // predictionbox.append("p");
+    predictionbox.text("prediction");
 }
-
-///////////////////////
-        // const myForm = document.getElementById("myForm");
-        // const csvFile = document.getElementById("csvFile");
-    
-        // function csvToArray(str, delimiter = ",") {
-    
-        //   // slice from start of text to the first \n index
-        //   // use split to create an array from string by delimiter
-        //   const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
-    
-        //   // slice from \n index + 1 to the end of the text
-        //   // use split to create an array of each csv value row
-        //   const rows = str.slice(str.indexOf("\n") + 1).split("\n");
-    
-        //   // Map the rows
-        //   // split values from each row into an array
-        //   // use headers.reduce to create an object
-        //   // object properties derived from headers:values
-        //   // the object passed as an element of the array
-        //   const arr = rows.map(function (row) {
-        //     const values = row.split(delimiter);
-        //     const el = headers.reduce(function (object, header, index) {
-        //       object[header] = values[index];
-        //       return object;
-        //     }, {});
-        //     return el;
-        //   });
-    
-        //   // return the array
-        //   return arr;
-        // }
-    
-        // myForm.addEventListener("submit", function (e) {
-        //   e.preventDefault();
-        //   const input = csvFile.files[0];
-        //   const reader = new FileReader();
-    
-        //   reader.onload = function (e) {
-        //     const text = e.target.result;
-        //     const data = csvToArray(text);
-        //     document.write(JSON.stringify(data));
-            
-        //     console.log("Check data: ", data);
-            
-        //     fetch("/bulk", {
-        //         method: "POST",
-        //         body: JSON.stringify(data),
-        //         headers: {
-        //             "Content-type": "application/json; charset=UTF-8"
-        //         },
-                
-        //     }
-        //     // ).then((bulkoutcome) => bulkshowResult(bulkoutcome)
-        //     );
-
-        //     // function bulkshowResult(bulkoutcome) {
-        //     //     console.log("bulkreturn");
-        //     //     console.log(bulkoutcome);
-        //     // }   
-
-
-        //   };
-          
-        //   reader.readAsText(input);
-        // });
-
