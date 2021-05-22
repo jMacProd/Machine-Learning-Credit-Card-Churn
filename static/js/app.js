@@ -1,6 +1,7 @@
  d3.select("#btn").on("click", (event) => doCheckCustomer(event));
 
 function doCheckCustomer(event) {
+    
     d3.event.preventDefault();
 
     console.log("Checking Customer");
@@ -100,6 +101,7 @@ function doCheckCustomer(event) {
     
         var prediction = ""
         let cleartags = d3.select("#msg").selectAll("*").remove();
+        let cleartagsbulk = d3.select("#bulkmsg").selectAll("*").remove();
         let predictionbox = d3.select("#msg");
     
     
