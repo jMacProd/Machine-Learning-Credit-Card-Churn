@@ -32,7 +32,7 @@ chardet==3.0.4
 citipy==0.0.5
 click==7.1.2
 cloudpickle
-clyent==1.2.2
+clyent==1.2.1
 colorama==0.4.3
 configparser==5.0.1
 contextlib2==0.6.0.post1
