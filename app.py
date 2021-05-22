@@ -253,7 +253,7 @@ def bulk():
     
     # dataframelist = X_test_scaled.tolist() 
     # return jsonify(dataframelist)
-    # return ("Bulk data")
+    # return ("Bulk data Issue")
 
 
 #################################################
