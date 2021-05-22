@@ -99,7 +99,7 @@ function doCheckCustomer(event) {
         console.log(outcome);
     
         var prediction = ""
-        cleartags = d3.select("#msg").selectAll("*").remove();
+        let cleartags = d3.select("#msg").selectAll("*").remove();
         let predictionbox = d3.select("#msg");
     
     

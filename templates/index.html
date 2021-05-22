@@ -205,6 +205,7 @@
 
 
             
+            // https://pythonise.com/series/learning-flask/flask-and-fetch-api
             fetch(
                 "/bulk", {
                 method: "POST",
@@ -219,8 +220,46 @@
                     console.log(response.status);
                     // return;
                 }
-                else response.json().then(function(data) {
-                    console.log(data);
+                else response.json().then(function(bulkoutcome) {
+                    console.log(`prediction_list: ${bulkoutcome}`);
+                    console.log(data)
+                    console.log(`prediction_list[0]: ${bulkoutcome[0]}`)
+                    console.log(`There are ${bulkoutcome.length} records in this table.`);
+
+                    var prediction = ""
+                    let cleartags = d3.select("#msg").selectAll("*").remove();
+                    let predictionbox = d3.select("#msg");
+                    addtable = predictionbox.append("table");
+                    tableatttri = addtable.attr("id", "prediction_table")
+                        .attr("class", "table table-striped");
+                    headerrow = addtable.append("thead").append("tr");
+                    headercell1 = headerrow.append("th").text("Age");
+                    headercell1 = headerrow.append("th").text("Gender");
+                    headercell1 = headerrow.append("th").text("Dependants");
+                    headercell1 = headerrow.append("th").text("Marital Status");
+                    headercell1 = headerrow.append("th").text("Education");
+                    headercell1 = headerrow.append("th").text("Income");
+                    headercell1 = headerrow.append("th").text("Card");
+                    headercell1 = headerrow.append("th").text("M.O.B");
+                    headercell1 = headerrow.append("th").text("Relationships");
+                    headercell1 = headerrow.append("th").text("Inactive");
+                    headercell1 = headerrow.append("th").text("Contacts");
+                    headercell1 = headerrow.append("th").text("Credit");
+                    headercell1 = headerrow.append("th").text("Revolving");
+                    headercell1 = headerrow.append("th").text("Avg open");
+                    headercell1 = headerrow.append("th").text("Amt Change");
+                    headercell1 = headerrow.append("th").text("Total trans amt");
+                    headercell1 = headerrow.append("th").text("Total trans count");
+                    headercell1 = headerrow.append("th").text("Total trans change");
+                    headercell1 = headerrow.append("th").text("Ratio");
+                    tbody = addtable.append("tbody");
+
+                    bulkoutcome.forEach(function(prediction){
+                        var row = tbody.append("td");
+                        
+                    }
+                    )
+
                 });
              });
             // .catch(function(error) {
