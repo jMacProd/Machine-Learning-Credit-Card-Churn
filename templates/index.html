@@ -228,7 +228,6 @@
 
 
 
-                    var prediction = ""
                     let cleartags = d3.select("#msg").selectAll("*").remove();
                     let predictionbox = d3.select("#msg");
                     addtable = predictionbox.append("table");
@@ -268,8 +267,16 @@
 
                         });
 
+                        let prediction = ""
+                        if (bulkoutcome[n] == 0) {
+                            prediction = "Churn Risk";
+                        }
+                        else if (bulkoutcome[n] == 1) {
+                            prediction = "Safe";
+                        }
+                        
                         var predictcell = row.append("td")
-                        predictcell.text(bulkoutcome[n])
+                        predictcell.text(prediction)
                         n = n+1
                         
                     }
@@ -284,29 +291,29 @@
             // .then((bulkoutcome) => bulkshowResult(bulkoutcome)
             // );
 
-            function bulkshowResult(bulkoutcome) {
-                console.log("bulkreturn");
-                console.log(bulkoutcome);
+            // function bulkshowResult(bulkoutcome) {
+            //     console.log("bulkreturn");
+            //     console.log(bulkoutcome);
 
-                var prediction = ""
-                let cleartags = d3.select("#msg").selectAll("*").remove();
-                let predictionbox = d3.select("#msg");
-
-
-
-                addtable = predictionbox.append("table");
-                tableatttri = addtable.attr("id", "prediction_table")
-                    .attr("class", "table table-striped");
-                tablehead1 = addtable.append("thead").append("th").attr("class", "table-head").text("Input");
-                tablebody = addtable.append("tbody");
-                tablerow1 = tablebody.append("tr");
-                age = tablerow1.append("td").text("Age: " + bulkoutcome);
+            //     var prediction = ""
+            //     let cleartags = d3.select("#msg").selectAll("*").remove();
+            //     let predictionbox = d3.select("#msg");
 
 
 
+            //     addtable = predictionbox.append("table");
+            //     tableatttri = addtable.attr("id", "prediction_table")
+            //         .attr("class", "table table-striped");
+            //     tablehead1 = addtable.append("thead").append("th").attr("class", "table-head").text("Input");
+            //     tablebody = addtable.append("tbody");
+            //     tablerow1 = tablebody.append("tr");
+            //     age = tablerow1.append("td").text("Age: " + bulkoutcome);
 
 
-            }   
+
+
+
+            // }   
 
 
           };
