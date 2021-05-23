@@ -5,5 +5,10 @@
 /Images/
 /Final Project - Presentation/
 /03 Feature Engineering/
-
-
+/Data/
+/04 Pre-processing Template/01 Pre-processing- X-Y split - Y One-Hot Encoding - Train-Test Split - Scaling X Training Data/
+/04 Pre-processing Template/02 Import Pre-process data - CSV to arrays - DONT USE/
+/05 Machine Learning Models/01 ML Model - Tree - Random Forest Model/
+/05 Machine Learning Models/02 Testing creating prediction code for app file/
+/05 Machine Learning Models/KN_Test/
+/05 Machine Learning Models/LogisticRegression/
