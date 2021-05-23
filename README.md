@@ -15,7 +15,7 @@ Customer churn is one of the biggest challenges for any business. It can be diff
 We have 5 steps in data exploration:
 
 - Variable Identification (in word file in google drive)
-- [Univariate Analysis in Tableau](https://public.tableau.com/profile/will.bobzin#!/vizhome/Bank_churn_exploration_dash1/Dashboard1?publish=yes) 
+- [Univariate Analysis in Tableau](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
 - Bi-variate Analysis (Python file in data exploration)
 - Missing Values treatment (in Python file)
 - Outlier treatment (in python file)
