@@ -1,0 +1,9 @@
+# Files/directories to be excluded from the Heroku build, to reduce
+# the resultant slug size and thus speed up dyno deploys.
+
+/01 Data Exploration/
+/Images/
+/Final Project - Presentation/
+/03 Feature Engineering/
+
+
