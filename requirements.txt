@@ -81,6 +81,11 @@ simplejson==3.17.2
 six==1.11.0
 sklearn==0.0
 SQLAlchemy==1.4.7
+tensorboard==2.5.0 
+tensorboard-data-server==0.6.0 
+tensorboard-plugin-wit==1.8.0 
+tensorflow==2.4.1 
+tensorflow-estimator==2.4.0
 terminado==0.9.4
 testpath==0.4.4
 threadpoolctl==2.1.0
