@@ -1,5 +1,8 @@
+numpy
+scipy
 pandas
-sklearn
+matplotlib
+scikit-learn
 joblib
 gunicorn
 flask
