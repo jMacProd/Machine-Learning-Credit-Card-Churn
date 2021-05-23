@@ -8,4 +8,14 @@ Customer churn is one of the biggest challenges for any business. It can be diff
 
 ## Dataset
 
-This dataset consists of 10,000 existing and attrited customers mentioning their age, salary, marital_status, credit card limit, credit card category, etc. There are nearly 18 features.
+[Our dataset](https://www.kaggle.com/sakshigoyal7/credit-card-customers) consists of 10,000 existing and attrited customers. It includes 23 columns including their age, salary, marital_status, credit card limit, credit card category, etc.
+
+## Data Exploration
+
+We have 5 steps in data exploration:
+
+- Variable Identification (in word file in google drive)
+- [Univariate Analysis in Tableau](https://public.tableau.com/profile/will.bobzin#!/vizhome/Bank_churn_exploration_dash1/Dashboard1?publish=yes) 
+- Bi-variate Analysis (Python file in data exploration)
+- Missing Values treatment (in Python file)
+- Outlier treatment (in python file)
