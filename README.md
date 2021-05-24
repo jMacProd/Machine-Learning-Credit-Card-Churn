@@ -20,15 +20,15 @@ We further conducted bi-variate analysis, missing value treatment, and outlier t
 
 - Correlation Matrix
 
-![matrix](Images/correlation_matrix.jpg)
+![matrix](Images/correlation_matrix.png)
 
 - Pairplots
 
-![pairplots](Images/Pairplots.jpg)
+![pairplots](Images/Pairplots.png)
 
 - Boxplot Outliers
 
-![pairplots](Images/Boxplot_Outliers.jpg)
+![boxplots](Images/Boxplot_Outliers.png)
 
 ## Feature Engineering
 
@@ -52,7 +52,8 @@ After the feature engineering we did the following pre-processing steps:
 
 - Split data into X (features) and Y (classes)
 - Split data into Train and Test data
-- Label Encoding Y classesOne-hot encoding
+- Label Encoding Y classes
+- One-hot encoding
 
 ## Machine Learning Model
 
@@ -69,4 +70,10 @@ As the Random Forest model achieved the highest test scores, we decided to imple
 
 The Credit Card Churn Predictor can be found here:
 
-https://project3-bank-churning.herokuapp.com/
+## https://project3-bank-churning.herokuapp.com/
+
+### Potential Improvements
+
+Redusing the number of imput features to the important ones.
+
+1[importan_features](Images/Feature_order.png)
