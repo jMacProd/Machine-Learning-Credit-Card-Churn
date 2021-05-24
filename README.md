@@ -14,18 +14,17 @@ Customer churn is one of the biggest challenges for any business. It can be diff
 
 We started the data exploration with a univariate analysis and visualised it in an [interactive Tableau dashbord](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn):
 
-[![dashboard](Images/dashboard.jpg)](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
+[![dashboard](Images/dashboard.png)](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
 
 We further conducted bi-variate analysis, missing value treatment, and outlier treatment using Python in a [Jupyter Notebook](01%20Data%20Exploration/Multivariate_analysis.ipynb). Here are some of the results:
 
-
+[<img src="Images/dashboard.png">](http://google.com.au/)
 
 - Variable Identification (in word file in google drive)
 - [Univariate Analysis in Tableau](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
 - Bi-variate Analysis (Python file in data exploration)
 - Missing Values treatment (in Python file)
 - Outlier treatment (in python file)
-
 
 ## The App
 
