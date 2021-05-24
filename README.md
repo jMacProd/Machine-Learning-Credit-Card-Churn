@@ -76,4 +76,4 @@ The Credit Card Churn Predictor can be found here:
 
 Redusing the number of imput features to the important ones.
 
-1[importan_features](Images/Feature_order.png)
+![importan_features](Images/Feature_order.png)
