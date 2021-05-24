@@ -18,15 +18,54 @@ We started the data exploration with a univariate analysis and visualised it in 
 
 We further conducted bi-variate analysis, missing value treatment, and outlier treatment using Python in a [Jupyter Notebook](01%20Data%20Exploration/Multivariate_analysis.ipynb). Here are some of the results:
 
-[<img src="Images/dashboard.png">](http://google.com.au/)
+- Correlation Matrix
 
-- Variable Identification (in word file in google drive)
-- [Univariate Analysis in Tableau](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
-- Bi-variate Analysis (Python file in data exploration)
-- Missing Values treatment (in Python file)
-- Outlier treatment (in python file)
+![matrix](Images/correlation_matrix.jpg)
 
-## The App
+- Pairplots
+
+![pairplots](Images/Pairplots.jpg)
+
+- Boxplot Outliers
+
+![pairplots](Images/Boxplot_Outliers.jpg)
+
+## Feature Engineering
+
+The feature engineering was done using Python in [this Jupyter Notebook](03%20Feature%20Engineering/01%20Feature%20Engineering%20-%20Converting%20categorical%20features%20to%20numerical.ipynb).
+
+### Ordinal Categorical Features
+
+- Education_Level
+- Income Category
+- Card_Category
+
+### Non-Ordinal Categorical Features
+
+- Gender
+- Marital_Status
+- ...
+
+## Pre-Processing
+
+After the feature engineering we did the following pre-processing steps:
+
+- Split data into X (features) and Y (classes)
+- Split data into Train and Test data
+- Label Encoding Y classesOne-hot encoding
+
+## Machine Learning Model
+
+We built the following 4 machine learning models with the corresponding scores:
+
+1. [Decision Tree](05%20Machine%20Learning%20Models/01%20ML%20Model%20-%20Tree%20-%20Random%20Forest%20Model.ipynb) – Score 0.937
+2. [Random Forest](05%20Machine%20Learning%20Models/01%20ML%20Model%20-%20Tree%20-%20Random%20Forest%20Model.ipynb) – Score 0.962
+3. [Logistic Regression](05%20Machine%20Learning%20Models/LogisticRegression.ipynb) – Score 0.88
+4. [K Nearest Neighbour](05%20Machine%20Learning%20Models/KN_Test.ipynb) – Score 0.9
+
+As the Random Forest model achieved the highest test scores, we decided to implement it in our final app.
+
+## The Final App
 
 The Credit Card Churn Predictor can be found here:
 
