@@ -1,4 +1,4 @@
-# Machine Learning Project - Credit Card Churn - https://project3-bank-churning.herokuapp.com/
+# Machine Learning Project - Credit Card Churn
 
 ## Background
 
@@ -12,10 +12,23 @@ Customer churn is one of the biggest challenges for any business. It can be diff
 
 ## Data Exploration
 
-We have 5 steps in data exploration:
+We started the data exploration with a univariate analysis and visualised it in an [interactive Tableau dashbord](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn):
+
+[![dashboard](Images/dashboard.jpg)](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
+
+We further conducted bi-variate analysis, missing value treatment, and outlier treatment using Python in a [Jupyter Notebook](01%20Data%20Exploration/Multivariate_analysis.ipynb). Here are some of the results:
+
+
 
 - Variable Identification (in word file in google drive)
 - [Univariate Analysis in Tableau](https://public.tableau.com/profile/franz.kiel#!/vizhome/Credit_Card_Churn/CreditCardChurn)
 - Bi-variate Analysis (Python file in data exploration)
 - Missing Values treatment (in Python file)
 - Outlier treatment (in python file)
+
+
+## The App
+
+The Credit Card Churn Predictor can be found here:
+
+https://project3-bank-churning.herokuapp.com/
