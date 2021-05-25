@@ -88,22 +88,22 @@ Redusing the number of imput features to the important ones.
 ![importan_features](Images/Feature_order.png)
 
 ## Technologies
-Pandas
-Seaborn
-Matplotlib
-Tableau Public
-Scikit Learn
-Statsmodels
-Numpy
-Tensorflow
-Pickle
-Python Web Flask
-HTML
-JavaScript
-CSS
-D3.js
-Bootstrap
-Herokuapp
+- Pandas
+- Seaborn
+- Matplotlib
+- Tableau Public
+- Scikit Learn
+- Statsmodels
+- Numpy
+- Tensorflow
+- Pickle
+- Python Web Flask
+- HTML
+- JavaScript
+- CSS
+- D3.js
+- Bootstrap
+- Herokuapp
 
 ## Navigating the repository
 - app.py
@@ -133,8 +133,8 @@ Herokuapp
 
 **Data**
 - BankChurners.csv - *Original Data*
-BankChurners_cleaned.csv *- Output*
-TestBulkData.csv *- Prepared data for use in Keroku app*
+- BankChurners_cleaned.csv *- Output*
+- TestBulkData.csv *- Prepared data for use in Keroku app*
 
 **Static**
 - **css**
@@ -154,11 +154,11 @@ TestBulkData.csv *- Prepared data for use in Keroku app*
 
 - Code to scale specific features - https://www.codegrepper.com/code-examples/python/can+i+scale+certain+columns+in+my+pandas+dataframe%3F
 
- - #https://www.thepythoncode.com/article/extracting-and-submitting-web-page-forms-in-python
+ - https://www.thepythoncode.com/article/extracting-and-submitting-web-page-forms-in-python
  
-- #https://stackoverflow.com/questions/47380663/numpy-reverse-keras-to-categorical
+- https://stackoverflow.com/questions/47380663/numpy-reverse-keras-to-categorical
 
-- #https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+- https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
 
 - https://mljar.com/blog/save-load-random-forest/
 
