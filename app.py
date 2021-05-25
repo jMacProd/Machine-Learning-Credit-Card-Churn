@@ -17,17 +17,7 @@ from flask import (
     request,
     redirect)
 
-# from scipy import stats
-# from scipy.stats import randint
-# Models
-# Tree Classifier
-# from sklearn.tree import DecisionTreeClassifier
-# Random Forest
-# from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
-# from sklearn.model_selection import RandomizedSearchCV
-# Logistic Regression
-# from sklearn.linear_model import LogisticRegression
- 
+
 
 #################################################
 # Flask Setup
@@ -38,26 +28,7 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-    #IF we are using SQL on Heruko
-# from flask_sqlalchemy import SQLAlchemy
-# From Ryan's example
-# from sqlalchemy.sql import select, column, text
-# from sqlalchemy.sql.expression import func
-# import simplejson
-
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '').replace("://", "ql://", 1) or "sqlite:///db.sqlite"
-
-    #IF we are using SQL on local servier
-    #cofig.py file used when accessing data from locally hosted postgres database. Commented out for Heroku deployment. File not tracked to github
-# from config import user, password
-# app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user}:{password}@localhost:5432/twitteractivity'
-
-    # Remove tracking modifications - probably only need this if using SQL
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# db = SQLAlchemy(app)
-
-# XXXXX = create_classes(db)
+# Not Required
 
 #################################################
 # create route that renders index.html template
@@ -100,7 +71,7 @@ def individual():
     col_names = ['Months_on_book', 'Total_Relationship_Count', 'Months_Inactive_12_mon',
        'Contacts_Count_12_mon', 'Credit_Limit', 'Total_Revolving_Bal',
        'Avg_Open_To_Buy', 'Total_Amt_Chng_Q4_Q1', 'Total_Trans_Amt',
-       'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1']
+       'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1', 'Avg_Utilization_Ratio']
     
     # #Create dataframe of just the columns to be scaled
     X_test_features = X_test_scaled[col_names]
@@ -123,22 +94,7 @@ def individual():
 
     prediction_list = predictions_forest_decoded.tolist() 
     return jsonify(prediction_list[0])
-    ############################
-    
-    # lists = predictions_forest_decoded.tolist()
-    # json_str = json.dumps(lists)
-    # return json_str
-    # return str(predictions_forest_decoded[0])
 
-
-
-    # if (predictions_forest_decoded[0] == 0):
-    #     return ("Customer is at risk of churn")
-    # elif (predictions_forest_decoded[0] == 1):
-    #     return ("Customer is not at risk of churn")
-
-    # lists = customer.tolist()
-    # return (customer)
 
 #################################################
 # create route that collects entered CSV on index.html
@@ -218,7 +174,7 @@ def bulk():
     col_names = ['Months_on_book', 'Total_Relationship_Count', 'Months_Inactive_12_mon',
        'Contacts_Count_12_mon', 'Credit_Limit', 'Total_Revolving_Bal',
        'Avg_Open_To_Buy', 'Total_Amt_Chng_Q4_Q1', 'Total_Trans_Amt',
-       'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1']
+       'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1', 'Avg_Utilization_Ratio']
     # print(col_names)
     
     # #Create dataframe of just the columns to be scaled

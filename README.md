@@ -54,6 +54,7 @@ After the feature engineering we did the following pre-processing steps:
 - Split data into Train and Test data
 - Label Encoding Y classes
 - One-hot encoding
+- MinMaxScaling for continual features
 
 ## Machine Learning Model
 
