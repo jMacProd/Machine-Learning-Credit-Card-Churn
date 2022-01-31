@@ -1,4 +1,4 @@
-# Machine Learning Project - Credit Card Churn
+# Machine Learning - Credit Card Churn
 
 ## Background
 
