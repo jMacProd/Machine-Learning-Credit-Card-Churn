@@ -12,6 +12,33 @@ The Credit Card Churn Predictor can be found here:
 
 **https://project3-bank-churning.herokuapp.com/**
 
+Below is a data sample you can use to complete the input form in the predictor.
+* Customer_Age	**45**
+* Gender	**M**
+* Dependent_count	**3**
+* Marital_Status	**Married**
+* Education_Level	**High School**
+* Income_Category	**$60K - $80K**
+* Card_Category	**Blue**
+* Months_on_book	**39**
+* Total_Relationship_Count	**5**
+* Months_Inactive_12_mon	**1**
+* Contacts_Count_12_mon	**3**
+* Credit_Limit	**12691**
+* Total_Revolving_Bal	**777**
+* Avg_Open_To_Buy	**11914**
+* Total_Amt_Chng_Q4_Q1	**1.335**
+* Total_Trans_Amt	**1144**
+* Total_Trans_Ct	**42**
+* Total_Ct_Chng_Q4_Q1	**1.625**
+* Avg_Utilization_Ratio	**0.061**
+
+To download a bulk data set: 
+* Navigate to file "TestBulkData.csv" from the Data folder
+* Click the file and then click the "Raw" button. 
+* Right click the data and select “Save As” to download the file.
+* The file can then be used to load into the predictor.
+
 ## Contributors
 * Swobabika Jena (https://github.com/SwobabikaJena)
 * Diana Madonko (https://github.com/DMadonko)
